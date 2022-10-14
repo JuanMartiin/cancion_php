@@ -19,6 +19,7 @@ Primera app en laravel, aprendiendo a publicar en github.
               Generate new token >
               Establecer nota, fecha de expiración y permisos >
               Generate token
+
    7º github: copiar el token
 ]
 
