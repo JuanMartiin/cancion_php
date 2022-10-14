@@ -25,6 +25,9 @@ Primera app en laravel, aprendiendo a publicar en github.
 
 8º cloud9: publicar el proyecto en github
            //agregar la novedades para que sean subidas
+
            git add . --all
+
            git commit -m "Primera subida del proyecto"
+
            git push (user (no email), token)
