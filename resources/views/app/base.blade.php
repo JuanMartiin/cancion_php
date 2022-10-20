@@ -19,6 +19,12 @@
                     <li class="nav-item {{$activeBike ?? ''}}">
                         <a class="nav-link" href="{{ url('bike') }}">Bikes</a>
                     </li>
+                    <li class="nav-item {{$activePersona ?? ''}}">
+                        <a class="nav-link" href="{{ url('persona') }}">Persona</a>
+                    </li>
+                    <li class="nav-item {{$activeCancion ?? ''}}">
+                        <a class="nav-link" href="{{ url('cancion') }}">Canciones</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('dummy/get') }}">Dummy Routes</a>
                     </li>

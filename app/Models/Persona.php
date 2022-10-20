@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory; //import de java
 use Illuminate\Database\Eloquent\Model; //import de java
 
-class Bike extends Model //
+class Persona extends Model //
 {
     use HasFactory; //trait
     
-    //tabla del modelo: bikes
-    //protected $table = 'bike';
+    
+    protected $table = 'persona';
     
     //no voy a usar marcas de tiempo (por ahora)
     public $timestamps = false;
     
-    public $fillable = ['name'];
+    public $fillable = ['dni', 'name', 'apellidos', 'telefono'];
 }

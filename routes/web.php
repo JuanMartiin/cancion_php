@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\DummyController;
+use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\CancionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +42,5 @@ Route::put   ('dummy/put',    [DummyController::class, 'put'   ])->name('dummy.p
 Route::any   ('dummy/any',    [DummyController::class, 'any'   ])->name('dummy.any'   );
 
 Route::resource('bike', BikeController::class); //las rutas de recursos tienen ya un nombre de forma predeterminada
+Route::resource('persona', PersonaController::class);
+Route::resource('cancion', CancionController::class);

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bike;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
-class BikeController extends Controller
+class PersonaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class BikeController extends Controller
      */
     public function index()
     {
-        $bikes = Bike::all();
-        return view('bike.index', ['activeBike' => 'active', 'subTitle' => 'Bike - index']);
+        $personas = Persona::all();
+        return view('persona.index', ['activePersona' => 'active', 'personas' => $personas]);
     }
 
     /**
@@ -23,9 +23,9 @@ class BikeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Persona $persona)
     {
-        return view('bike.create', ['activeBike' => 'active', 'subTitle' => 'Bikes - Create']);
+       return view('persona.create', ['activePersona' => 'active', 'personas' => $persona]);
     }
 
     /**
@@ -36,7 +36,9 @@ class BikeController extends Controller
      */
     public function store(Request $request)
     {
-        return view('bike.store', ['activeBike' => 'active', 'name' => $request->input('name'), 'subTitle' => 'Bikes - Store']);
+        $persona = new Persona($request->all());
+        $persona->save();
+        return redirect('/persona');
     }
 
     /**
@@ -45,9 +47,9 @@ class BikeController extends Controller
      * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function show($id) //Bike $bike)
+    public function show(Persona $persona)
     {
-        return view('bike.show', ['activeBike' => 'active', 'id' => $id, 'subTitle' => 'Bikes - Show' . $bike->name]);
+        return view('persona.show', ['activePersona' => 'active', 'persona' => $persona]);
     }
 
     /**
@@ -56,9 +58,9 @@ class BikeController extends Controller
      * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bike $bike) //Bike $bike)
+    public function edit(Persona $persona)
     {
-        return view('bike.edit', ['activeBike' => 'active', 'bike' => $bike, 'subTitle' => 'Bikes - Edit']);
+        return view('persona.edit', ['activePersona' => 'active', 'persona' => $persona, 'subTitle' => 'Personas - Edit']);
     }
 
     /**
@@ -68,11 +70,10 @@ class BikeController extends Controller
      * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bike $bike) //Bike $bike)
+    public function update(Request $request, Persona $persona) //Bike $bike)
     {
-        //try, devolver un mensaje
-        $bike->update($request->all());
-        return redirect('/bike');
+        $persona->update($request->all());
+        return redirect('/persona');
     }
 
     /**
@@ -81,10 +82,9 @@ class BikeController extends Controller
      * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bike $bike) //Bike $bike)
+    public function destroy(Persona $persona) //Bike $bike)
     {
-        //try, devolver un mensaje
-        $bike->delete();
-        return redirect('/bike');
+        $persona->delete();
+        return redirect('/persona');
     }
 }
